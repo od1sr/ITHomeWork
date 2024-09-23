@@ -1,8 +1,10 @@
-import Layout from "@/Layouts/Basic"; '../../Layouts/Basic.jsx';
+import { Layout } from "@/Layouts/Basic"; '../../Layouts/Basic.jsx';
 import { Link } from '@inertiajs/react';
+import { setDateFormat } from "@/utils";
 
 export default function Tasks({tasks}){
     console.log(tasks);
+
     const taskList = tasks.map((task, i) => (
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -20,7 +22,7 @@ export default function Tasks({tasks}){
                     {task.additional_info}
                 </td>
                 <td className="px-6 py-4">
-                    {task.due_date}
+                    {setDateFormat(task.due_date)}
                 </td>
         </tr>
     ));
